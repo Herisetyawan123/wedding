@@ -9,7 +9,8 @@ export default function Opening({ handleOpen }: { handleOpen: () => void }) {
           <Image
             src="/assets/wedding.webp"
             alt="couple logo"
-            fill
+            className='object-contain'
+            layout='fill'
 
           />
         </div>
