@@ -102,7 +102,7 @@ export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIn
                 opacity: activeIndex === index ? 1 : 0.7,
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`flex-none shrink-0 w-[80px] cursor-pointer py-3 rounded text-xs text-center transition-all flex justify-center items-center flex-col gap-2 ${activeIndex === index ? 'text-white bg-[#B83143] font-bold duration-1000 transition-all' : 'text-[#B83143]'
+              className={`flex-none shrink-0 w-[80px] cursor-pointer py-3 rounded-2xl text-xs text-center transition-all flex justify-center items-center flex-col gap-2 ${activeIndex === index ? 'text-white bg-[#B83143] font-bold duration-1000 transition-all' : 'text-[#B83143]'
                 }`}
             >
               {
