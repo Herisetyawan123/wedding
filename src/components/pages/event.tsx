@@ -19,7 +19,7 @@ function Evenet() {
         </div>
       </div>
 
-      <div data-aos="fade-up">
+      <div data-aos="fade-up text-center">
 
         <h1 className="mt-2 font-bold">SATURDAY FROM 5PM-7PM</h1>
 
