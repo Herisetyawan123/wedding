@@ -21,10 +21,10 @@ function Evenet() {
 
       <div data-aos="fade-up text-center">
 
-        <h1 className="mt-2 font-bold">SATURDAY FROM 5PM-7PM</h1>
+        <h1 className="mt-2 font-bold text-center">SATURDAY FROM 5PM-7PM</h1>
 
-        <h2 className='font-bold underline mt-2'>Venue:</h2>
-        <p className='font-bold text-xl'>Grand i Hotel Nagoya Garden</p>
+        <h2 className='font-bold underline mt-2 text-center'>Venue:</h2>
+        <p className='font-bold text-xl text-center'>Grand i Hotel Nagoya Garden</p>
         <p className='text-center mt-5'>
           Jalan Teuku Umar,
           <br />

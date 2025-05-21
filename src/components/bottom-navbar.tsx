@@ -1,6 +1,6 @@
 'use client'
 
-import { Dispatch, SetStateAction, useRef } from 'react'
+import { Dispatch, SetStateAction, useRef, useEffect, useCallback } from 'react'
 import { BiHeart, BiHome } from 'react-icons/bi';
 import { BsQuote } from 'react-icons/bs';
 import { FaRegCalendar } from 'react-icons/fa';
@@ -34,9 +34,10 @@ const icons = [
 
 export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIndex: number, setActiveIndex: Dispatch<SetStateAction<number>> }) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const touchStartY = useRef(0)
+  const touchEndY = useRef(0)
 
-
-  const handleClick = (index: number) => {
+  const handleClick = useCallback((index: number) => {
     setActiveIndex(index)
 
     const container = containerRef.current
@@ -50,7 +51,34 @@ export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIn
         behavior: 'smooth',
       })
     }
-  }
+  }, [setActiveIndex]);
+
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY
+    }
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndY.current = e.changedTouches[0].clientY
+      handleGesture()
+    }
+
+    const handleGesture = () => {
+      if (touchStartY.current - touchEndY.current > 50) {
+        handleClick(activeIndex + 1)
+      } else if (touchStartY.current - touchEndY.current < -50) {
+        handleClick(activeIndex - 1)
+      }
+    }
+
+    document.addEventListener('touchstart', handleTouchStart)
+    document.addEventListener('touchend', handleTouchEnd)
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart)
+      document.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [activeIndex, handleClick])
 
   return (
     <div className="fixed bottom-0 left-0 right-0 flex justify-center z-20">
