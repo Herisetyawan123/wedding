@@ -24,8 +24,8 @@ function WrapperContent({ page }: { page: number }) {
 
   if (page == 1) {
     return (
-      <div className="flex flex-col items-center justify-center w-full h-[80%] text-[#B83143] z-20">
-        <div className="z-10 text-center">
+      <div className="flex flex-col bg-amber-300 items-center justify-center w-full h-[83%] text-[#B83143] z-20">
+        <div className="z-10 mt-10 text-center bg-red-300">
           <p>The Wedding of</p>
           <span className='font-bold text-2xl'>
             Kelvin &amp; Della

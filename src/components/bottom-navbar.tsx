@@ -1,0 +1,79 @@
+'use client'
+
+import { Dispatch, SetStateAction, useRef } from 'react'
+import { BiHeart, BiHome } from 'react-icons/bi';
+import { BsQuote } from 'react-icons/bs';
+import { FaRegCalendar } from 'react-icons/fa';
+import { FiSettings } from 'react-icons/fi';
+import { GrGallery } from 'react-icons/gr';
+import { HiMiniChatBubbleOvalLeftEllipsis } from 'react-icons/hi2';
+import { LuPartyPopper } from 'react-icons/lu';
+import { MdEvent } from 'react-icons/md';
+import { PiDress } from 'react-icons/pi';
+// import { motion } from 'framer-motion'
+
+const menus = [
+  'Opening', 'Save', 'Quotes', 'Gallery', 'Greeting', 'Groom', 'Bridge', 'Gallery', 'Gallery', 'Event'
+]
+
+const icons = [
+  <BiHome key={1} size={24} />,
+  <FaRegCalendar key={2} size={24} />,
+  <BsQuote key={3} size={24} />,
+  <GrGallery key={4} size={24} />,
+  <FiSettings key={5} size={24} />,
+  <BiHeart key={6} size={24} />,
+  <BiHeart key={7} size={24} />,
+  <GrGallery key={8} size={24} />,
+  <GrGallery key={9} size={24} />,
+  <MdEvent key={10} size={24} />,
+  <PiDress key={10} size={24} />,
+  <HiMiniChatBubbleOvalLeftEllipsis key={10} size={24} />,
+  <LuPartyPopper key={10} size={24} />,
+];
+
+export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIndex: number, setActiveIndex: Dispatch<SetStateAction<number>> }) {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+
+  const handleClick = (index: number) => {
+    setActiveIndex(index)
+
+    const container = containerRef.current
+    if (container) {
+      const menuItem = container.children[index] as HTMLElement
+      const containerWidth = container.offsetWidth
+      const scrollTo = menuItem.offsetLeft - containerWidth / 2 + menuItem.offsetWidth / 2
+
+      container.scrollTo({
+        left: scrollTo,
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  return (
+    <div className="fixed bottom-0 left-0 right-0 flex justify-center z-20">
+      <div className="bg-white shadow-md w-full max-w-[400px] overflow-hidden p-1">
+        <div
+          className="flex overflow-x-hidden relative gap-1"
+          ref={containerRef}
+        >
+          {menus.map((item, index) => (
+            <button
+              key={index}
+              onClick={() => handleClick(index)}
+              className={`flex-none shrink-0 w-[80px] cursor-pointer py-3 rounded text-xs text-center transition-all flex justify-center items-center flex-col gap-2 ${activeIndex === index ? 'text-white bg-[#B83143] font-bold' : 'text-[#B83143]'
+                }`}
+            >
+              {
+                icons[index]
+              }
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
