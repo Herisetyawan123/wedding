@@ -47,9 +47,6 @@ export default function Home() {
       setPage(<GalleryThree />)
     } else if (activeIndex == 9) {
       setPage(<Evenet />)
-    } else {
-      setPage(<div>hallo</div>)
-
     }
 
   }, [activeIndex])

@@ -10,7 +10,7 @@ import { HiMiniChatBubbleOvalLeftEllipsis } from 'react-icons/hi2';
 import { LuPartyPopper } from 'react-icons/lu';
 import { MdEvent } from 'react-icons/md';
 import { PiDress } from 'react-icons/pi';
-// import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const menus = [
   'Opening', 'Save', 'Quotes', 'Gallery', 'Greeting', 'Groom', 'Bridge', 'Gallery', 'Gallery', 'Event'
@@ -38,6 +38,7 @@ export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIn
   const touchEndY = useRef(0)
 
   const handleClick = useCallback((index: number) => {
+    // console.error(index)
     setActiveIndex(index)
 
     const container = containerRef.current
@@ -65,9 +66,13 @@ export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIn
 
     const handleGesture = () => {
       if (touchStartY.current - touchEndY.current > 50) {
-        handleClick(activeIndex + 1)
+        console.log("object")
+        if (activeIndex < menus.length - 1)
+          handleClick(activeIndex + 1)
       } else if (touchStartY.current - touchEndY.current < -50) {
-        handleClick(activeIndex - 1)
+        console.log("object")
+        if (activeIndex >= 0)
+          handleClick(activeIndex - 1)
       }
     }
 
@@ -88,17 +93,23 @@ export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIn
           ref={containerRef}
         >
           {menus.map((item, index) => (
-            <button
+            <motion.button
               key={index}
               onClick={() => handleClick(index)}
-              className={`flex-none shrink-0 w-[80px] cursor-pointer py-3 rounded text-xs text-center transition-all flex justify-center items-center flex-col gap-2 ${activeIndex === index ? 'text-white bg-[#B83143] font-bold' : 'text-[#B83143]'
+              initial={false}
+              animate={{
+                scale: activeIndex === index ? 1 : 0.95,
+                opacity: activeIndex === index ? 1 : 0.7,
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className={`flex-none shrink-0 w-[80px] cursor-pointer py-3 rounded text-xs text-center transition-all flex justify-center items-center flex-col gap-2 ${activeIndex === index ? 'text-white bg-[#B83143] font-bold duration-1000 transition-all' : 'text-[#B83143]'
                 }`}
             >
               {
                 icons[index]
               }
               {item}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
