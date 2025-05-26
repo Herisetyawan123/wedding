@@ -1,7 +1,7 @@
 'use client'
 
 import { Dispatch, SetStateAction, useRef, useEffect, useCallback } from 'react'
-import { BiHeart, BiHome } from 'react-icons/bi';
+import { BiHeart, BiHome, BiParty } from 'react-icons/bi';
 import { BsQuote } from 'react-icons/bs';
 import { FaRegCalendar } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
@@ -13,7 +13,7 @@ import { PiDress } from 'react-icons/pi';
 import { motion } from 'framer-motion'
 
 const menus = [
-  'Opening', 'Save', 'Quotes', 'Gallery', 'Greeting', 'Groom', 'Bridge', 'Gallery', 'Gallery', 'Event'
+  'Opening', 'Save', 'Quotes', 'Gallery', 'Greeting', 'Groom', 'Bridge', 'Gallery', 'Gallery', 'Event', 'Thanks'
 ]
 
 const icons = [
@@ -27,9 +27,7 @@ const icons = [
   <GrGallery key={8} size={24} />,
   <GrGallery key={9} size={24} />,
   <MdEvent key={10} size={24} />,
-  <PiDress key={10} size={24} />,
-  <HiMiniChatBubbleOvalLeftEllipsis key={10} size={24} />,
-  <LuPartyPopper key={10} size={24} />,
+  <BiParty key={11} size={24} />,
 ];
 
 export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIndex: number, setActiveIndex: Dispatch<SetStateAction<number>> }) {

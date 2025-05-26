@@ -4,7 +4,7 @@ import SaveTheDateImage from "@/assets/save-the-date.png";
 
 function SaveTheDate() {
   return (
-    <div className="p-4 z-10  relative h-full flex flex-col items-center w-full">
+    <div className="p-4 z-10  relative h-full flex flex-col items-center w-full" data-aos="zoom-in">
       <div className="h-28 w-28 rounded-full relative">
         <Image src={'/assets/logo.png'} alt="logo" fill className="w-full h-full object-contain" />
       </div>

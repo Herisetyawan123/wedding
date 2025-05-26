@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Opening({ handleOpen }: { handleOpen: () => void }) {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+    <div className="absolute inset-0 flex flex-col items-center justify-center z-10" data-aos="zoom-in">
       <div className='bg-[#fdf8f0] w-[60%] border-4 border-[#BC9C6A] h-80 mb-5 rounded-full relative flex'>
         <div className="w-[60%] relative h-[60%] m-auto">
           <Image

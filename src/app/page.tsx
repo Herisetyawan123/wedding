@@ -18,6 +18,7 @@ import Bridge from "@/components/pages/bridge";
 import GalleryTwo from "@/components/pages/gallery-two";
 import GalleryThree from "@/components/pages/gallery-three";
 import Evenet from "@/components/pages/event";
+import Thanks from "@/components/pages/thanks";
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(1)
@@ -47,13 +48,17 @@ export default function Home() {
       setPage(<GalleryThree />)
     } else if (activeIndex == 9) {
       setPage(<Evenet />)
+    } else if (activeIndex == 10) {
+      setPage(<Thanks />)
     }
+
+    AOS.refresh();
 
   }, [activeIndex])
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // durasi animasi (ms)
+      duration: 2000, // durasi animasi (ms)
       once: true, // animasi hanya saat pertama scroll
     })
   }, [])
@@ -101,9 +106,9 @@ export default function Home() {
         <div className="bg-[#b83143ac] w-10 h-10 rounded-full flex justify-center items-center">
           <BsWhatsapp size={24} />
         </div>
-        <div className="bg-[#b83143ac] w-10 h-10 rounded-full flex justify-center items-center">
+        {/* <div className="bg-[#b83143ac] w-10 h-10 rounded-full flex justify-center items-center">
           <FaQrcode size={24} />
-        </div>
+        </div> */}
         <div className="bg-[#b83143ac] w-10 h-10 rounded-full flex justify-center items-center cursor-pointer" onClick={() => { setMute(prev => !prev) }}>
           {
             mute ? (
@@ -125,27 +130,32 @@ export default function Home() {
         </div>
       </div>
 
+      {
+        activeIndex != 10 && (
+          <>
+            <div className="absolute -top-20 -right-20 w-96 h-96 z-0 pointer-events-none animate-floating" data-aos="fade-right">
+              <Image
+                src="/assets/flowers-1.webp"
+                alt="Bunga Kanan"
+                fill
+                style={{ objectFit: 'contain' }}
+                priority
+              />
+            </div>
 
-      <div className="absolute -top-20 -right-20 w-96 h-96 z-0 pointer-events-none animate-floating">
-        <Image
-          src="/assets/flowers-1.webp"
-          alt="Bunga Kanan"
-          fill
-          style={{ objectFit: 'contain' }}
-          priority
-        />
-      </div>
-
-      {/* Gambar bunga kiri bawah */}
-      <div className="absolute -bottom-20 -left-20 w-96 h-96 z-0 pointer-events-none animate-floating">
-        <Image
-          src="/assets/flowers-2.webp"
-          alt="Bunga Kiri"
-          fill
-          style={{ objectFit: 'contain' }}
-          priority
-        />
-      </div>
+            {/* Gambar bunga kiri bawah */}
+            <div className="absolute -bottom-20 -left-20 w-96 h-96 z-0 pointer-events-none animate-floating" data-aos="zoom-in">
+              <Image
+                src="/assets/flowers-2.webp"
+                alt="Bunga Kiri"
+                fill
+                style={{ objectFit: 'contain' }}
+                priority
+              />
+            </div>
+          </>
+        )
+      }
 
       {/* Opening Section */}
       {!isOpened && (
