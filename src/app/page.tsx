@@ -4,7 +4,6 @@ import Opening from "@/components/opening";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import AOS from "aos";
-import { FaQrcode } from "react-icons/fa";
 import { MdOutlineMusicNote, MdOutlineMusicOff } from "react-icons/md";
 import { FaCirclePause, FaCirclePlay } from "react-icons/fa6";
 import BottomNavbar from "@/components/bottom-navbar";

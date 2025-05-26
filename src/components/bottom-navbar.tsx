@@ -6,10 +6,7 @@ import { BsQuote } from 'react-icons/bs';
 import { FaRegCalendar } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
 import { GrGallery } from 'react-icons/gr';
-import { HiMiniChatBubbleOvalLeftEllipsis } from 'react-icons/hi2';
-import { LuPartyPopper } from 'react-icons/lu';
 import { MdEvent } from 'react-icons/md';
-import { PiDress } from 'react-icons/pi';
 import { motion } from 'framer-motion'
 
 const menus = [
