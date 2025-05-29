@@ -12,7 +12,7 @@ function Thanks() {
       backgroundPosition: 'center',
     }}>
       
-      <div className="relative w-full h-32">
+      <div className="relative w-full h-32" data-aos="fade-up">
         <Image
           src="/assets/thanks.png"
           alt="thanks"
@@ -21,7 +21,7 @@ function Thanks() {
         />
       </div>
 
-      <div className="relative w-32 h-32 mt-10">
+      <div className="relative w-32 h-32 mt-10" data-aos="fade-up">
         <Image
           src="/assets/logo-text.png"
           alt="logo"
@@ -31,7 +31,7 @@ function Thanks() {
       </div>
 
       {/* Tambahan QR Code Section */}
-      <div className="mt-10 text-center">
+      <div className="mt-10 text-center" data-aos="fade-up">
         <p className="mb-2 text-lg">Kirim hadiah via QR Code</p>
         <div className="relative w-40 h-40 mx-auto">
           <Image

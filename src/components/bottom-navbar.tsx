@@ -6,11 +6,12 @@ import { BsQuote } from 'react-icons/bs';
 import { FaRegCalendar } from 'react-icons/fa';
 import { FiSettings } from 'react-icons/fi';
 import { GrGallery } from 'react-icons/gr';
-import { MdEvent } from 'react-icons/md';
+import { MdBubbleChart, MdEvent } from 'react-icons/md';
+import { PiDressFill } from "react-icons/pi";
 import { motion } from 'framer-motion'
 
 const menus = [
-  'Opening', 'Save', 'Quotes', 'Gallery', 'Greeting', 'Groom', 'Bridge', 'Gallery', 'Gallery', 'Event', 'Thanks'
+  'Opening', 'Save', 'Quotes', 'Gallery', 'Greeting', 'Groom', 'Bridge', 'Gallery', 'Gallery', 'Event', 'Dresscode','Rsvp', 'Thanks'
 ]
 
 const icons = [
@@ -24,7 +25,9 @@ const icons = [
   <GrGallery key={8} size={24} />,
   <GrGallery key={9} size={24} />,
   <MdEvent key={10} size={24} />,
-  <BiParty key={11} size={24} />,
+  <PiDressFill  key={11} size={24} />,
+  <MdBubbleChart key={12} size={24} />,
+  <BiParty key={13} size={24} />,
 ];
 
 export default function BottomNavbar({ activeIndex, setActiveIndex }: { activeIndex: number, setActiveIndex: Dispatch<SetStateAction<number>> }) {

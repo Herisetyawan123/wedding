@@ -18,6 +18,8 @@ import GalleryTwo from "@/components/pages/gallery-two";
 import GalleryThree from "@/components/pages/gallery-three";
 import Evenet from "@/components/pages/event";
 import Thanks from "@/components/pages/thanks";
+import DressCode from "@/components/pages/dress-code";
+import Rsvp from "@/components/pages/rsvp";
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(1)
@@ -48,8 +50,13 @@ export default function Home() {
     } else if (activeIndex == 9) {
       setPage(<Evenet />)
     } else if (activeIndex == 10) {
+      setPage(<DressCode />)
+    } else if (activeIndex == 11) {
+      setPage(<Rsvp />)
+    } else if (activeIndex == 12) {
       setPage(<Thanks />)
     }
+
 
     AOS.refresh();
 
@@ -130,7 +137,7 @@ export default function Home() {
       </div>
 
       {
-        activeIndex != 10 && (
+        activeIndex != 12 && (
           <>
             <div className="absolute -top-20 -right-20 w-96 h-96 z-0 pointer-events-none animate-floating" data-aos="fade-right">
               <Image
