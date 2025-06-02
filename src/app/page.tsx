@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     if (activeIndex == 0) {
-      setPage(<Opening handleOpen={handleOpen} />)
+      setPage(<Opening handleOpen={handleOpen} isOpened={isOpened} />)
     } else if (activeIndex == 1) {
       setPage(<SaveTheDate />)
     } else if (activeIndex == 2) {
@@ -60,7 +60,7 @@ export default function Home() {
 
     AOS.refresh();
 
-  }, [activeIndex])
+  }, [activeIndex, isOpened])
 
   useEffect(() => {
     AOS.init({
@@ -139,9 +139,9 @@ export default function Home() {
       {
         activeIndex != 12 && (
           <>
-            <div className="absolute -top-20 -right-20 w-96 h-96 z-0 pointer-events-none animate-floating" data-aos="fade-right">
+            <div className="absolute -top-20 -right-30 w-96 h-96 z-0 pointer-events-none animate-floating" data-aos="fade-right">
               <Image
-                src="/assets/flowers-1.webp"
+                src="/assets/flower-red3.png"
                 alt="Bunga Kanan"
                 fill
                 style={{ objectFit: 'contain' }}
@@ -150,9 +150,9 @@ export default function Home() {
             </div>
 
             {/* Gambar bunga kiri bawah */}
-            <div className="absolute -bottom-20 -left-20 w-96 h-96 z-0 pointer-events-none animate-floating" data-aos="zoom-in">
+            <div className="absolute -bottom-30 -left-20 w-96 h-96 z-0 pointer-events-none animate-floating" data-aos="zoom-in">
               <Image
-                src="/assets/flowers-2.webp"
+                src="/assets/flower-red2.png"
                 alt="Bunga Kiri"
                 fill
                 style={{ objectFit: 'contain' }}
@@ -165,10 +165,11 @@ export default function Home() {
 
       {/* Opening Section */}
       {!isOpened && (
-        <Opening handleOpen={handleOpen} />
+        <Opening handleOpen={handleOpen} isOpened={isOpened} />
       )}
 
 
     </main>
   );
 }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
